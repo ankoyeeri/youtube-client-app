@@ -1,3 +1,15 @@
-<p>search works!</p>
-
-<app-search-item></app-search-item>
+<div class="search">
+  <form>
+    <input
+      id="search"
+      type="text"
+      placeholder="What do you want to find out?"
+    />
+    <button class="submit" type="submit">search</button>
+    <div>
+      <button id="search-settings" type="button" (click)="onExpandSettings()">
+        <img src="../../assets/search_settings.svg" />
+      </button>
+    </div>
+  </form>
+</div>
