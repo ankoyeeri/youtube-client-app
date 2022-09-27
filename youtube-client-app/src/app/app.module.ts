@@ -7,6 +7,7 @@ import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { SearchItemComponent } from './search/search-item/search-item.component';
 import { FormsModule } from '@angular/forms';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     SearchComponent,
     SearchResultsComponent,
     SearchItemComponent,
+    ErrorComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
