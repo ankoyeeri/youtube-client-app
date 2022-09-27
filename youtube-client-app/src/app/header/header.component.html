@@ -1,2 +1,26 @@
-<p>header works!</p>
-<app-search></app-search>
+<div class="row header">
+  <div class="row main">
+    <div class="logo">
+      <img src="../../assets/logo.svg" />
+    </div>
+    <div class="search">
+      <app-search (settingsExpandEvent)="onSettingsExpanded()"></app-search>
+    </div>
+    <div class="login">
+      <p>Your Name</p>
+      <button type="button">
+        <img src="../../assets/login-button.svg" />
+      </button>
+    </div>
+  </div>
+
+  <div class="row search-settings" *ngIf="isSettingsExpanded">
+    <p>Sorting by:</p>
+    <button href="#">date</button>
+    <button href="#">count of views</button>
+    <div>
+      <button href="#">by word or sentence</button>
+      <input type="text" />
+    </div>
+  </div>
+</div>

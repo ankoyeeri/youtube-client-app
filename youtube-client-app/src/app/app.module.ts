@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { SearchItemComponent } from './search/search-item/search-item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,12 +14,10 @@ import { SearchItemComponent } from './search/search-item/search-item.component'
     HeaderComponent,
     SearchComponent,
     SearchResultsComponent,
-    SearchItemComponent
+    SearchItemComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
