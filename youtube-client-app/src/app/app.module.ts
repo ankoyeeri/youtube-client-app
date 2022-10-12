@@ -10,8 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './card/login/login.component';
+import { CreateNewComponent } from './card/create-new/create-new.component';
 
 const appRoutes: Routes = [
+  { path: '', component: CreateNewComponent },
   { path: 'login', component: LoginComponent },
   { path: 'result', component: SearchResultsComponent },
 ];
@@ -25,6 +27,7 @@ const appRoutes: Routes = [
     SearchItemComponent,
     ErrorComponent,
     LoginComponent,
+    CreateNewComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],
