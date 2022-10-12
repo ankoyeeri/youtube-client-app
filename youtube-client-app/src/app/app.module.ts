@@ -9,8 +9,10 @@ import { SearchItemComponent } from './search/search-item/search-item.component'
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './card/login/login.component';
 
 const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: 'result', component: SearchResultsComponent },
 ];
 
@@ -22,6 +24,7 @@ const appRoutes: Routes = [
     SearchResultsComponent,
     SearchItemComponent,
     ErrorComponent,
+    LoginComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],
