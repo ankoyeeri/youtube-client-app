@@ -1,26 +1,26 @@
 <div class="card">
   <div class="image">
-    <img src="https://picsum.photos/640/480" />
+    <img [src]="searchItem?.image" />
   </div>
   <div class="stats">
     <div>
       <img src="../../../assets/viewed.svg" />
-      <p>100</p>
+      <p>{{ searchItem?.views }}</p>
     </div>
     <div>
       <img src="../../../assets/liked.svg" />
-      <p>200</p>
+      <p>{{ searchItem?.likes }}</p>
     </div>
     <div>
       <img src="../../../assets/dislike.svg" />
-      <p>100</p>
+      <p>{{ searchItem?.dislikes }}</p>
     </div>
     <div>
       <img src="../../../assets/comments.svg" />
-      <p>130</p>
+      <p>{{ searchItem?.comments }}</p>
     </div>
   </div>
-  <div class="name">Video Name</div>
+  <div class="name">{{ searchItem?.name }}</div>
   <div class="btn-more">
     <button>more...</button>
   </div>
