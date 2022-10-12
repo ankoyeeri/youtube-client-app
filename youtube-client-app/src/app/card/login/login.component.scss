@@ -2,16 +2,18 @@
   display: flex;
   flex-direction: column;
 
-  width: 344px;
-  height: 248px;
+  width: 350px;
+  // height: 250px;
 
-  border-radius: 5px;
+  padding: 20px;
+  padding-top: 28px;
+  padding-bottom: 26px;
+
   background: #f2f2f2;
+  border-radius: 5px;
 
-  h2 {
+  & > h2 {
     position: relative;
-    top: 10%;
-    left: 20px;
 
     font-style: normal;
     font-weight: 700;
@@ -19,49 +21,23 @@
     line-height: 21px;
   }
 
-  form {
+  & > form {
     display: flex;
     flex-direction: column;
 
-    position: relative;
-    top: 15%;
-    left: 20px;
-
-    .login-btn {
-      position: relative;
-      left: 180px;
-
-      top: 20px;
-
-      width: 124px;
-      height: 30px;
-
-      color: white;
-
-      cursor: pointer;
-
-      border: none;
-      outline: none;
-
-      background: #2f80ed;
-      border-radius: 5px;
-
-      &:hover {
-        filter: drop-shadow(1px 0px 2px #2f80ed);
-      }
-    }
+    margin-top: 10px;
 
     div {
       display: flex;
       flex-direction: column;
 
-      & > * {
-        margin-top: 1%;
-      }
+      // margin-bottom: 1.5%;
 
-      & > label {
+      label {
         position: relative;
-        left: 6px;
+        left: 5px;
+
+        margin: 1%;
 
         font-style: normal;
         font-weight: 400;
@@ -71,9 +47,8 @@
         color: #828282;
       }
 
-      & > input {
-        width: 294px;
-        height: 37px;
+      input {
+        height: 38px;
 
         outline: none;
         border: none;
@@ -81,15 +56,62 @@
         background: #e0e0e0;
       }
 
-      & > input[type="text" i],
-      & > input[type="password" i] {
-        position: relative;
+      & > input[type="text"],
+      & > input[type="password"] {
         padding-left: 8px;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      align-self: flex-end;
+
+      position: relative;
+      margin-top: 22px;
+
+      .reg-btn {
+        position: relative;
+        right: 15px;
+
+        border: none;
+
+        color: #2f80ed;
 
         font-style: normal;
         font-weight: 400;
-        font-size: 10px;
-        line-height: 12px;
+        font-size: 12px;
+        line-height: 14px;
+        text-decoration: underline;
+
+        cursor: pointer;
+
+        &:hover {
+          color: #85b0e7;
+        }
+      }
+
+      .login-btn {
+        width: 124px;
+        height: 30px;
+
+        border: none;
+
+        color: white;
+
+        background: #2f80ed;
+        border-radius: 5px;
+
+        cursor: pointer;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+
+        &:hover {
+          filter: drop-shadow(1px 0px 2px #2f80ed);
+        }
       }
     }
   }
