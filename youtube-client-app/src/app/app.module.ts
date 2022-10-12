@@ -11,10 +11,12 @@ import { ErrorComponent } from './error/error.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './card/login/login.component';
 import { CreateNewComponent } from './card/create-new/create-new.component';
+import { RegistrationComponent } from './card/registration/registration.component';
 
 const appRoutes: Routes = [
   { path: '', component: CreateNewComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'registration', component: RegistrationComponent },
   { path: 'result', component: SearchResultsComponent },
 ];
 
@@ -28,6 +30,7 @@ const appRoutes: Routes = [
     ErrorComponent,
     LoginComponent,
     CreateNewComponent,
+    RegistrationComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],
