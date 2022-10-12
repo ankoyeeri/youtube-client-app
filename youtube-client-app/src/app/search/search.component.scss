@@ -28,7 +28,7 @@
       &:hover {
         cursor: pointer;
 
-        filter: drop-shadow(2px 0px 4px #2f80ed);
+        filter: drop-shadow(1px 0px 2px #2f80ed);
       }
     }
 
@@ -53,7 +53,7 @@
         border: none;
 
         &:hover img {
-          filter: drop-shadow(2px 0px 4px #2f80ed);
+          filter: drop-shadow(1px 0px 2px #2f80ed);
         }
       }
     }
