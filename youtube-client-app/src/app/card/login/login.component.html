@@ -1,20 +1,36 @@
 <div class="login">
   <h2>Login</h2>
-  <form action="#">
-    <div>
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <div class="form-group">
       <label for="login">login</label>
-      <input type="text" value="Done Joe" />
+      <input type="text" name="login" required ngModel #login="ngModel" />
+      <div
+        class="status"
+        [ngClass]="{ 'status-warning': !login.valid && login.touched }"
+      ></div>
     </div>
-    <div>
+    <div class="form-group">
       <label for="password">password</label>
-      <input type="password" value="**********" />
+      <input
+        type="password"
+        name="password"
+        required
+        ngModel
+        #password="ngModel"
+      />
+      <div
+        class="status"
+        [ngClass]="{ 'status-warning': !password.valid && password.touched }"
+      ></div>
     </div>
 
     <div class="buttons">
       <button type="button" class="reg-btn" routerLink="/registration">
         Registration
       </button>
-      <button type="submit" class="login-btn">Login</button>
+      <button type="submit" class="login-btn" [disabled]="!form.valid">
+        Login
+      </button>
     </div>
   </form>
 </div>
