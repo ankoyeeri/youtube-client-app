@@ -14,12 +14,7 @@ import { CreateNewComponent } from './card/create-new/create-new.component';
 import { RegistrationComponent } from './card/registration/registration.component';
 import { SearchService } from './search/search.service';
 
-const appRoutes: Routes = [
-  { path: '', component: CreateNewComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'result', component: SearchResultsComponent },
-];
+import { AppRoutesModule } from './app-routes.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +28,7 @@ const appRoutes: Routes = [
     CreateNewComponent,
     RegistrationComponent,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, FormsModule, AppRoutesModule],
   providers: [SearchService],
   bootstrap: [AppComponent],
 })
