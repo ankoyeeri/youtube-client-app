@@ -1,4 +1,12 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -7,12 +15,21 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
   @Output() settingsExpandEvent = new EventEmitter<undefined>();
+  @ViewChild('form', { static: false }) form: NgForm | undefined;
 
-  constructor() {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {}
 
   onExpandSettings() {
     this.settingsExpandEvent.emit();
+  }
+
+  onSubmit() {
+    if ((<string>this.form?.value['search']).length < 1) {
+      this.router.navigate(['/results']);
+    }
+
+    console.log(this.form);
   }
 }

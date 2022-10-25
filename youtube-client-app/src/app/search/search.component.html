@@ -1,9 +1,11 @@
 <div class="search">
-  <form>
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
     <input
       id="search"
       type="text"
+      name="search"
       placeholder="What do you want to find out?"
+      ngModel
     />
     <button class="submit" type="submit">search</button>
     <div>
