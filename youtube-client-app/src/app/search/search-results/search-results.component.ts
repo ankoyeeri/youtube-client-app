@@ -6,7 +6,6 @@ import { SearchService } from '../search.service';
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
-  providers: [SearchService],
 })
 export class SearchResultsComponent implements OnInit {
   searchResults: SearchItem[] = [];

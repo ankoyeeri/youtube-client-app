@@ -5,4 +5,5 @@ export interface SearchItem {
   dislikes: number;
   comments: number;
   image: string;
+  date: Date;
 }

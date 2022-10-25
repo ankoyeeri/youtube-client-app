@@ -9,6 +9,7 @@ export class SearchService {
       dislikes: 15,
       comments: 74,
       image: 'https://picsum.photos/640/480',
+      date: new Date('2023-07-03'),
     },
     {
       name: 'Video #2',
@@ -17,6 +18,7 @@ export class SearchService {
       dislikes: 15,
       comments: 74,
       image: 'https://picsum.photos/640/480',
+      date: new Date('2023-01-18'),
     },
     {
       name: 'Video #3',
@@ -25,6 +27,7 @@ export class SearchService {
       dislikes: 15,
       comments: 74,
       image: 'https://picsum.photos/640/480',
+      date: new Date('2023-06-26'),
     },
     {
       name: 'Video #4',
@@ -33,6 +36,7 @@ export class SearchService {
       dislikes: 15,
       comments: 74,
       image: 'https://picsum.photos/640/480',
+      date: new Date('2023-09-09'),
     },
     {
       name: 'Video #5',
@@ -41,10 +45,17 @@ export class SearchService {
       dislikes: 15,
       comments: 74,
       image: 'https://picsum.photos/640/480',
+      date: new Date('2023-07-04'),
     },
   ];
 
   getSearchItems() {
     return this.searchItems.slice();
+  }
+
+  sortByDate() {
+    return this.searchItems
+      .slice()
+      .sort((itemA, itemB) => Number(itemA.date) - Number(itemB.date));
   }
 }

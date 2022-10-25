@@ -12,6 +12,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './card/login/login.component';
 import { CreateNewComponent } from './card/create-new/create-new.component';
 import { RegistrationComponent } from './card/registration/registration.component';
+import { SearchService } from './search/search.service';
 
 const appRoutes: Routes = [
   { path: '', component: CreateNewComponent },
@@ -33,7 +34,7 @@ const appRoutes: Routes = [
     RegistrationComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
