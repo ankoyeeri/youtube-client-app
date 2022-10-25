@@ -5,7 +5,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { FormGroup, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
