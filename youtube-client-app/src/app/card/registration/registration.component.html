@@ -1,38 +1,64 @@
 <div class="registration">
   <h2>Registration</h2>
-  <form>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div>
-      <label for="">First Name</label>
+      <label for="firstName">First Name</label>
       <div class="input">
-        <input type="text" value="RandomName" />
-        <div class="status status-default"></div>
+        <input type="text" name="firstName" formControlName="firstName" />
+        <div
+          class="status"
+          [ngClass]="{
+            'status-warning':
+              !form.get('firstName')?.valid && form.get('firstName')?.touched
+          }"
+        ></div>
       </div>
     </div>
     <div>
-      <label for="">Last Name</label>
+      <label for="lastName">Last Name</label>
       <div class="input">
-        <input type="text" />
-        <div class="status status-warning"></div>
+        <input type="text" name="lastName" formControlName="lastName" />
+        <div
+          class="status"
+          [ngClass]="{
+            'status-warning':
+              !form.get('lastName')?.valid && form.get('lastName')?.touched
+          }"
+        ></div>
       </div>
     </div>
     <div>
-      <label for="">mail</label>
+      <label for="email">mail</label>
       <div class="input">
-        <input type="email" value="test@email.com" />
-        <div class="status status-default"></div>
+        <input type="email" name="email" formControlName="email" />
+        <div
+          class="status"
+          [ngClass]="{
+            'status-warning':
+              !form.get('email')?.valid && form.get('email')?.touched
+          }"
+        ></div>
       </div>
     </div>
     <div>
-      <label for="">password</label>
+      <label for="password">password</label>
       <div class="input">
-        <input type="password" />
-        <div class="status status-warning"></div>
+        <input type="password" name="password" formControlName="password" />
+        <div
+          class="status"
+          [ngClass]="{
+            'status-warning':
+              !form.get('password')?.valid && form.get('password')?.touched
+          }"
+        ></div>
       </div>
     </div>
 
     <div class="buttons">
       <button routerLink="/login" class="login-btn">Login</button>
-      <button type="submit" class="submit">Registration</button>
+      <button type="submit" class="submit" [disabled]="!form.valid">
+        Registration
+      </button>
     </div>
   </form>
 </div>

@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { SearchItemComponent } from './search/search-item/search-item.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './card/login/login.component';
@@ -28,7 +28,7 @@ import { AppRoutesModule } from './app-routes.module';
     CreateNewComponent,
     RegistrationComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutesModule],
+  imports: [BrowserModule, FormsModule, AppRoutesModule, ReactiveFormsModule],
   providers: [SearchService],
   bootstrap: [AppComponent],
 })

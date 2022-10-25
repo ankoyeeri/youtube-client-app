@@ -127,6 +127,13 @@
         &:hover {
           filter: drop-shadow(1px 0px 2px #2f80ed);
         }
+
+        &:disabled {
+          background-color: #85b9ff;
+          &:hover {
+            filter: none;
+          }
+        }
       }
     }
   }
