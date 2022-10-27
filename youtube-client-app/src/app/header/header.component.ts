@@ -20,4 +20,8 @@ export class HeaderComponent implements OnInit {
   onSortByDate() {
     this.searchService.sortByDate();
   }
+
+  onSortByViews() {
+    this.searchService.sortByViews();
+  }
 }

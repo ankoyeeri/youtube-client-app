@@ -65,9 +65,17 @@ export class SearchService {
   }
 
   sortByDate() {
-    let result = this.searchItems
-      .slice()
-      .sort((itemA, itemB) => Number(itemA.date) - Number(itemB.date));
+    let result = this.searchItems.sort(
+      (itemA, itemB) => Number(itemA.date) - Number(itemB.date)
+    );
+
+    this.onSearchItemsChanged.next(result);
+  }
+
+  sortByViews() {
+    let result = this.searchItems.sort(
+      (itemA, itemB) => itemA.views - itemB.views
+    );
 
     this.onSearchItemsChanged.next(result);
   }
