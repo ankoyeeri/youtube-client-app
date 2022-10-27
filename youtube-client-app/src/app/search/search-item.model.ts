@@ -5,5 +5,7 @@ export interface SearchItem {
   dislikes: number;
   comments: number;
   image: string;
+  link?: string;
+  description?: string;
   date: Date;
 }
