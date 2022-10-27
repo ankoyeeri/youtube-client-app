@@ -1,0 +1,46 @@
+<div class="video-card">
+  <div class="return">
+    <button (click)="onReturn()">
+      <img src="../../../assets/button-arrow-return.svg" />
+    </button>
+  </div>
+  <div class="blocks-group">
+    <div class="player">
+      <img [src]="searchItem?.image" />
+    </div>
+
+    <div class="details">
+      <div class="heading">
+        <h2>{{ searchItem?.name }}</h2>
+        <p>{{ searchItem?.date | date: "fullDate" }}</p>
+      </div>
+
+      <div class="description" *ngIf="searchItem?.description">
+        <h4>Description:</h4>
+        <p>{{ searchItem?.description }}</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat-group">
+          <img src="../../../assets/viewed.svg" />
+          <p>{{ searchItem?.views }}</p>
+        </div>
+
+        <div class="stat-group">
+          <img src="../../../assets/liked.svg" />
+          <p>{{ searchItem?.likes }}</p>
+        </div>
+
+        <div class="stat-group">
+          <img src="../../../assets/dislike.svg" />
+          <p>{{ searchItem?.dislikes }}</p>
+        </div>
+
+        <div class="stat-group">
+          <img src="../../../assets/comments.svg" />
+          <p>{{ searchItem?.comments }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
