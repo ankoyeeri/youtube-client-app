@@ -9,11 +9,15 @@ import { SearchService } from '../search/search.service';
 export class HeaderComponent implements OnInit {
   isSettingsExpanded = false;
 
-  constructor() {}
+  constructor(private searchService: SearchService) {}
 
   ngOnInit(): void {}
 
   onSettingsExpanded() {
     this.isSettingsExpanded = !this.isSettingsExpanded;
+  }
+
+  onSortByDate() {
+    this.searchService.sortByDate();
   }
 }

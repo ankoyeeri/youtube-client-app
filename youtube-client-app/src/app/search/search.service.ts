@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import { SearchItem } from './search-item.model';
 
 export class SearchService {
@@ -53,6 +54,8 @@ export class SearchService {
     },
   ];
 
+  onSearchItemsChanged = new Subject<SearchItem[]>();
+
   getSearchItems() {
     return this.searchItems.slice();
   }
@@ -62,8 +65,10 @@ export class SearchService {
   }
 
   sortByDate() {
-    return this.searchItems
+    let result = this.searchItems
       .slice()
       .sort((itemA, itemB) => Number(itemA.date) - Number(itemB.date));
+
+    this.onSearchItemsChanged.next(result);
   }
 }
