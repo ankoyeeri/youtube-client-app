@@ -12,28 +12,26 @@ export class SearchForPipe implements PipeTransform {
       for (let propName of propNames) {
         if (!item[propName]) continue;
 
-        switch (typeof item[propName]) {
-          case 'string':
-            if (
-              (<string>item[propName]).search(new RegExp(searchValue, 'ig')) !=
-              -1
-            ) {
-              resultArray.push(item);
-              continue;
-            }
-            break;
+        let type = typeof item[propName];
 
-          case 'number':
-            if (item[propName] === Number(searchValue)) {
-              resultArray.push(item);
-            }
+        if (type === 'string') {
+          if (
+            (<string>item[propName]).search(new RegExp(searchValue, 'ig')) != -1
+          ) {
+            resultArray.push(item);
             break;
-          default:
+          }
+        }
+
+        if (type === 'number') {
+          if (item[propName] === Number(searchValue)) {
+            resultArray.push(item);
             break;
+          }
         }
       }
     }
 
-    return resultArray;
+    return resultArray.length < 1 ? value : resultArray;
   }
 }
