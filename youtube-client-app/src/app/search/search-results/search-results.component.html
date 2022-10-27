@@ -1,8 +1,9 @@
 <div class="row">
   <div class="results">
     <app-search-item
-      *ngFor="let searchItem of searchResults"
+      *ngFor="let searchItem of searchResults; let i = index"
       [searchItem]="searchItem"
+      [id]="i"
     ></app-search-item>
   </div>
 </div>

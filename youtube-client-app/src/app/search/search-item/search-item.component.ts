@@ -8,6 +8,7 @@ import { SearchItem } from '../search-item.model';
 })
 export class SearchItemComponent implements OnInit {
   @Input() searchItem: SearchItem | undefined;
+  @Input() id: number = -1;
 
   constructor() {}
 
