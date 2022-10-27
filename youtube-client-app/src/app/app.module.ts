@@ -16,6 +16,7 @@ import { SearchService } from './search/search.service';
 
 import { AppRoutesModule } from './app-routes.module';
 import { ParagraphFormatPipe } from './pipes/paragraph-format.pipe';
+import { SearchForPipe } from './pipes/searchFor.pipe';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ParagraphFormatPipe } from './pipes/paragraph-format.pipe';
     CreateNewComponent,
     RegistrationComponent,
     ParagraphFormatPipe,
+    SearchForPipe,
   ],
   imports: [BrowserModule, FormsModule, AppRoutesModule, ReactiveFormsModule],
   providers: [SearchService],
