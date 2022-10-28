@@ -30,6 +30,6 @@ export class SearchComponent implements OnInit {
       this.router.navigate(['/results']);
     }
 
-    console.log(this.form);
+    // console.log(this.form);
   }
 }

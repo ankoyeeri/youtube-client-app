@@ -1,7 +1,11 @@
 <div class="row">
   <div class="results">
     <app-search-item
-      *ngFor="let searchItem of searchResults; let i = index"
+      *ngFor="
+        let searchItem of searchResults
+          | searchFor: searchByWordOrSentence:'name':'description';
+        let i = index
+      "
       [searchItem]="searchItem"
       [id]="i"
     ></app-search-item>

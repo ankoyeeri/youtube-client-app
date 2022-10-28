@@ -23,8 +23,13 @@
       count of views
     </button>
     <div>
-      <button href="#">by word or sentence</button>
-      <input type="text" />
+      <button
+        routerLink="/results"
+        [queryParams]="{ searchBy: 'string', value: sortByWordOrSentenceValue }"
+      >
+        by word or sentence
+      </button>
+      <input type="text" [(ngModel)]="sortByWordOrSentenceValue" />
     </div>
   </div>
 </div>

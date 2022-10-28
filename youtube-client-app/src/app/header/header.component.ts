@@ -8,6 +8,7 @@ import { SearchService } from '../search/search.service';
 })
 export class HeaderComponent implements OnInit {
   isSettingsExpanded = false;
+  sortByWordOrSentenceValue = '';
 
   constructor(private searchService: SearchService) {}
 
@@ -15,13 +16,5 @@ export class HeaderComponent implements OnInit {
 
   onSettingsExpanded() {
     this.isSettingsExpanded = !this.isSettingsExpanded;
-  }
-
-  onSortByDate() {
-    this.searchService.sortByDate();
-  }
-
-  onSortByViews() {
-    this.searchService.sortByViews();
   }
 }
