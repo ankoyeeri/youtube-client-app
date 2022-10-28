@@ -64,6 +64,10 @@ export class SearchService {
     return this.searchItems[index];
   }
 
+  addSearchItem(item: SearchItem) {
+    this.searchItems.push(item);
+  }
+
   sortByDate() {
     let result = this.searchItems
       .slice()

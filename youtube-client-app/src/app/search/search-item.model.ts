@@ -7,5 +7,5 @@ export interface SearchItem {
   image: string;
   link?: string;
   description?: string;
-  date: Date;
+  date?: Date;
 }
