@@ -14,6 +14,8 @@ const appRoutes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'results', component: SearchResultsComponent },
   { path: 'results/:id', component: SearchItemDetailsComponent },
+  { path: 'error', component: ErrorComponent },
+  { path: '**', redirectTo: 'error' },
 ];
 
 @NgModule({

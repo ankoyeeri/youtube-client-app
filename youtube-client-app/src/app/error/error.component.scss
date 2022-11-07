@@ -1,0 +1,33 @@
+div.error {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  position: relative;
+  top: 30vh;
+
+  img {
+    width: 100px;
+    height: 100px;
+
+    margin-right: 26px;
+  }
+
+  p {
+    position: relative;
+    width: 233px;
+    top: -5px;
+
+    color: #828282;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+  }
+}
