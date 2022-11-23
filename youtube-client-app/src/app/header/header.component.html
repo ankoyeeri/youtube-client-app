@@ -3,9 +3,33 @@
     <div class="logo" routerLink="/">
       <img src="../../assets/logo.svg" />
     </div>
+
     <div class="search">
-      <app-search (settingsExpandEvent)="onSettingsExpanded()"></app-search>
+      <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <input
+          id="search"
+          type="text"
+          placeholder="What do you want to find out?"
+          name="search"
+          formControlName="search"
+        />
+
+        <button class="submit" type="submit" [disabled]="!form.valid">
+          search
+        </button>
+
+        <div>
+          <button
+            id="search-settings"
+            type="button"
+            (click)="onSettingsExpand()"
+          >
+            <img src="../../assets/search_settings.svg" />
+          </button>
+        </div>
+      </form>
     </div>
+
     <div class="login">
       <p>Your Name</p>
       <button type="button" routerLink="/login">
