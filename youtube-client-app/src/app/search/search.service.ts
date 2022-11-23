@@ -1,6 +1,10 @@
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { SearchItem } from './search-item.model';
 
+@Injectable({
+  providedIn: 'root',
+})
 export class SearchService {
   private searchItems: SearchItem[] = [
     {
