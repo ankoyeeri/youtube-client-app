@@ -9,8 +9,6 @@ import { SearchItemDetailsComponent } from './search/search-item-details/search-
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 
 const appRoutes: Routes = [
-  { path: 'results', component: SearchResultsComponent },
-  { path: 'results/:id', component: SearchItemDetailsComponent },
   { path: 'error', component: ErrorComponent },
   { path: '**', redirectTo: 'error' },
 ];
