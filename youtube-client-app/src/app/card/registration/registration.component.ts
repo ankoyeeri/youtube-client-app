@@ -6,7 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
   form = new FormGroup({
     firstName: new FormControl(null, [Validators.required]),
     lastName: new FormControl(null, [Validators.required]),
@@ -15,8 +15,6 @@ export class RegistrationComponent implements OnInit {
   });
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   onSubmit() {
     console.log(this.form.value);

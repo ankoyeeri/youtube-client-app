@@ -7,7 +7,7 @@ import { SearchService } from 'src/app/search/search.service';
   templateUrl: './create-new.component.html',
   styleUrls: ['./create-new.component.scss'],
 })
-export class CreateNewComponent implements OnInit {
+export class CreateNewComponent {
   form = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.maxLength(15)]),
     description: new FormControl('', [Validators.required]),
@@ -16,8 +16,6 @@ export class CreateNewComponent implements OnInit {
   });
 
   constructor(private searchService: SearchService) {}
-
-  ngOnInit(): void {}
 
   onSubmit() {
     console.log(this.form);

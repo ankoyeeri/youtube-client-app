@@ -6,11 +6,9 @@ import { SearchItem } from '../search-item.model';
   templateUrl: './search-item.component.html',
   styleUrls: ['./search-item.component.scss'],
 })
-export class SearchItemComponent implements OnInit {
+export class SearchItemComponent {
   @Input() searchItem: SearchItem | undefined;
   @Input() id: number = -1;
 
   constructor() {}
-
-  ngOnInit(): void {}
 }
