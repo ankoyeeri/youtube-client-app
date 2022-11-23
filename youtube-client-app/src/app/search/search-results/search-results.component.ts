@@ -35,7 +35,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
         case 'string':
           const value = params['value'];
-          this.searchByWordOrSentence = value;
+          this.searchResults = this.searchService.sortBySentence(value);
           break;
 
         default:
