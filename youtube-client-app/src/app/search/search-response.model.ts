@@ -1,13 +1,3 @@
-export interface SearchResponse {
-  kind: string;
-  etag: string;
-  pageInfo: {
-    totalResults: number;
-    resultsPerPage: number;
-  };
-  items: Item[];
-}
-
 interface Item {
   kind: string;
   etag: string;
@@ -65,4 +55,14 @@ interface Thumbnails {
     width: number;
     height: number;
   };
+}
+
+export interface SearchResponse {
+  kind: string;
+  etag: string;
+  pageInfo: {
+    totalResults: number;
+    resultsPerPage: number;
+  };
+  items: Item[];
 }
