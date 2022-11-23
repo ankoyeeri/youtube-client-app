@@ -14,8 +14,6 @@ export class RegistrationComponent {
     password: new FormControl(null, [Validators.required]),
   });
 
-  constructor() {}
-
   onSubmit() {
     console.log(this.form.value);
     this.form.reset();
