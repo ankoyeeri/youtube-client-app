@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +7,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('form', { static: false }) form: NgForm | undefined;
+  form = new FormGroup({
+    login: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+  });
 
   constructor() {}
 
