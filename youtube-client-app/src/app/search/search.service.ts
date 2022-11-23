@@ -87,4 +87,23 @@ export class SearchService {
 
     return result;
   }
+
+  sortBySentence(sentence: string) {
+    let result = this.searchItems.slice().filter((item) => {
+      if (item.name.search(new RegExp(sentence, 'ig')) != -1) {
+        return true;
+      }
+
+      if (
+        item.description &&
+        item.description?.search(new RegExp(sentence, 'ig')) != -1
+      ) {
+        return true;
+      }
+
+      return false;
+    });
+
+    return result;
+  }
 }
