@@ -10,7 +10,6 @@ import { SearchService } from '../search/search.service';
 })
 export class HeaderComponent {
   isSettingsExpanded = false;
-  sortByWordOrSentenceValue = '';
 
   form = new FormGroup({
     search: new FormControl('', [Validators.required]),

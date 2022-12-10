@@ -38,22 +38,5 @@
     </div>
   </div>
 
-  <div class="row search-settings" *ngIf="isSettingsExpanded">
-    <p>Sorting by:</p>
-    <button routerLink="/results" [queryParams]="{ searchBy: 'date' }">
-      date
-    </button>
-    <button routerLink="/results" [queryParams]="{ searchBy: 'views' }">
-      count of views
-    </button>
-    <div>
-      <button
-        routerLink="/results"
-        [queryParams]="{ searchBy: 'string', value: sortByWordOrSentenceValue }"
-      >
-        by word or sentence
-      </button>
-      <input type="text" [(ngModel)]="sortByWordOrSentenceValue" />
-    </div>
-  </div>
+  <app-filtering-criteria *ngIf="isSettingsExpanded"></app-filtering-criteria>
 </div>

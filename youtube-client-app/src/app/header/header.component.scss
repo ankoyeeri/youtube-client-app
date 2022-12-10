@@ -126,43 +126,4 @@
       }
     }
   }
-
-  div.search-settings {
-    position: relative;
-
-    display: flex;
-    justify-content: center;
-
-    margin-top: 1.5vh;
-    margin-bottom: 1.5vh;
-
-    width: 100%;
-
-    position: relative;
-
-    & > * {
-      align-self: center;
-      margin-right: 1%;
-    }
-
-    & > p {
-      color: #929292;
-    }
-
-    & button {
-      border: none;
-      background-color: transparent;
-
-      cursor: pointer;
-
-      text-decoration: underline;
-      color: #2f80ed;
-    }
-
-    & input {
-      align-self: center;
-      border: none;
-      outline: none;
-    }
-  }
 }
