@@ -19,9 +19,10 @@ export class SearchItemDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
-
-    this.searchItem = this.searchService.getSearchItem(id);
+    this.route.paramMap.subscribe((params) => {
+      const id = +params.get('id');
+      this.searchItem = this.searchService.getSearchItem(id);
+    });
   }
 
   onReturn() {
