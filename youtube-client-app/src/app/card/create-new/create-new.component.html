@@ -3,13 +3,13 @@
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" name="title" formControlName="title" />
+      <label for="name">Title</label>
+      <input type="text" name="name" formControlName="name" />
       <div
         class="status"
         [ngClass]="{
           'status-warning':
-            !form.get('title')?.valid && form.get('title')?.touched
+            !form.get('name')?.valid && form.get('name')?.touched
         }"
       ></div>
     </div>

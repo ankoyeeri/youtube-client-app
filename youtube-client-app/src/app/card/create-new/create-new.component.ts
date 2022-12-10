@@ -9,7 +9,7 @@ import { SearchService } from 'src/app/search/search.service';
 })
 export class CreateNewComponent {
   form = new FormGroup({
-    title: new FormControl('', [Validators.required, Validators.maxLength(15)]),
+    name: new FormControl('', [Validators.required, Validators.maxLength(15)]),
     description: new FormControl('', [Validators.required]),
     image: new FormControl('', [Validators.required]),
     link: new FormControl('', [Validators.required]),
@@ -21,11 +21,7 @@ export class CreateNewComponent {
     console.log(this.form);
 
     this.searchService.addSearchItem({
-      name: this.form.value?.title!,
-      description: this.form.value.description!,
-      image: this.form.value.image!,
-      link: this.form.value?.link!,
-
+      ...this.form.getRawValue(),
       likes: 0,
       comments: 0,
       dislikes: 0,
