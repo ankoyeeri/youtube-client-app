@@ -8,8 +8,7 @@
         <div
           class="status"
           [ngClass]="{
-            'status-warning':
-              !form.get('firstName')?.valid && form.get('firstName')?.touched
+            'status-warning': isValid(form.get('firstName'))
           }"
         ></div>
       </div>
@@ -21,8 +20,7 @@
         <div
           class="status"
           [ngClass]="{
-            'status-warning':
-              !form.get('lastName')?.valid && form.get('lastName')?.touched
+            'status-warning': isValid(form.get('lastName'))
           }"
         ></div>
       </div>
@@ -34,8 +32,7 @@
         <div
           class="status"
           [ngClass]="{
-            'status-warning':
-              !form.get('email')?.valid && form.get('email')?.touched
+            'status-warning': isValid(form.get('email'))
           }"
         ></div>
       </div>
@@ -47,8 +44,7 @@
         <div
           class="status"
           [ngClass]="{
-            'status-warning':
-              !form.get('password')?.valid && form.get('password')?.touched
+            'status-warning': isValid(form.get('password'))
           }"
         ></div>
       </div>

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { SearchService } from 'src/app/search/search.service';
 
 @Component({
@@ -29,5 +34,9 @@ export class CreateNewComponent {
     });
 
     this.form.reset();
+  }
+
+  isValid(element: AbstractControl<any>) {
+    return !element.valid && element.touched;
   }
 }

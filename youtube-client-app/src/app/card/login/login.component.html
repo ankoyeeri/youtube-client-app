@@ -7,8 +7,7 @@
       <div
         class="status"
         [ngClass]="{
-          'status-warning':
-            !form.get('login')?.valid && form.get('login')?.touched
+          'status-warning': isValid(form.get('login'))
         }"
       ></div>
     </div>
@@ -18,8 +17,7 @@
       <div
         class="status"
         [ngClass]="{
-          'status-warning':
-            !form.get('password')?.valid && form.get('password')?.touched
+          'status-warning': isValid(form.get('password'))
         }"
       ></div>
     </div>

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -17,5 +22,9 @@ export class RegistrationComponent {
   onSubmit() {
     console.log(this.form.value);
     this.form.reset();
+  }
+
+  isValid(element: AbstractControl<any>) {
+    return !element.valid && element.touched;
   }
 }
