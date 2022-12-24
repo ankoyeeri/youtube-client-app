@@ -1,7 +1,6 @@
 <div class="results">
   <app-search-item
-    *ngFor="let searchItem of searchResults; let i = index"
+    *ngFor="let searchItem of searchResults"
     [searchItem]="searchItem"
-    [id]="i"
   ></app-search-item>
 </div>

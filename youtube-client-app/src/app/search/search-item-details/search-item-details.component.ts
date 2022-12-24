@@ -20,8 +20,8 @@ export class SearchItemDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      const id = +params.get('id');
-      this.searchItem = this.searchService.getSearchItem(id);
+      const id = params.get('id');
+      this.searchItem = this.searchService.getSearchItemById(id);
     });
   }
 

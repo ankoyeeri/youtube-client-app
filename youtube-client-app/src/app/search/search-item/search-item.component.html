@@ -7,7 +7,7 @@
 
   <div class="name">{{ searchItem?.name }}</div>
   <div class="btn-more">
-    <button [routerLink]="[id]">more...</button>
+    <button [routerLink]="[searchItem.id]">more...</button>
   </div>
   <app-color-line [date]="searchItem.date"></app-color-line>
 </div>
