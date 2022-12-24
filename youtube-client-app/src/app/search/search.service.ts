@@ -77,10 +77,18 @@ export class SearchService {
     this.searchItems.push(item);
   }
 
-  sortByDate() {
-    let result = this.searchItems
-      .slice()
-      .sort((itemA, itemB) => Number(itemA.date) - Number(itemB.date));
+  sortByDate(isAsc: boolean) {
+    let result = [];
+
+    if (isAsc) {
+      result = this.searchItems
+        .slice()
+        .sort((itemA, itemB) => Number(itemA.date) - Number(itemB.date));
+    } else {
+      result = this.searchItems
+        .slice()
+        .sort((itemA, itemB) => Number(itemB.date) - Number(itemA.date));
+    }
 
     return result;
   }

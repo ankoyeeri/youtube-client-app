@@ -5,10 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './filtering-criteria.component.html',
   styleUrls: ['./filtering-criteria.component.scss'],
 })
-export class FilteringCriteriaComponent implements OnInit {
+export class FilteringCriteriaComponent {
+  sortByDateAsc = true;
   sortByWordOrSentenceValue = '';
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

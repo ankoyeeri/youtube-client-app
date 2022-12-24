@@ -26,7 +26,8 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
       switch (searchBy) {
         case 'date':
-          this.searchResults = this.searchService.sortByDate();
+          const isAsc = params['asc'] === 'true';
+          this.searchResults = this.searchService.sortByDate(isAsc);
           break;
 
         case 'views':

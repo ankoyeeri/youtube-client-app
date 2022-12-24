@@ -1,6 +1,10 @@
 <div class="row filtering-criteria">
   <p>Sorting by:</p>
-  <button routerLink="/results" [queryParams]="{ searchBy: 'date' }">
+  <button
+    routerLink="/results"
+    (click)="sortByDateAsc = !sortByDateAsc"
+    [queryParams]="{ searchBy: 'date', asc: sortByDateAsc }"
+  >
     date
   </button>
   <button routerLink="/results" [queryParams]="{ searchBy: 'views' }">
