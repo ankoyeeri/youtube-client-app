@@ -1,4 +1,5 @@
 export interface SearchItem {
+  id: string;
   name: string;
   views: number;
   likes: number;
