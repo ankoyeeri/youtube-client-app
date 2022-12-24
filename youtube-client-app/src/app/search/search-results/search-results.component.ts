@@ -23,15 +23,15 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
     this.route.queryParams.subscribe((params: Params) => {
       const searchBy = params['searchBy'];
+      const isAsc = params['asc'] === 'true';
 
       switch (searchBy) {
         case 'date':
-          const isAsc = params['asc'] === 'true';
           this.searchResults = this.searchService.sortByDate(isAsc);
           break;
 
         case 'views':
-          this.searchResults = this.searchService.sortByViews();
+          this.searchResults = this.searchService.sortByViews(isAsc);
           break;
 
         case 'string':

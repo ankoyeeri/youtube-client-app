@@ -93,10 +93,18 @@ export class SearchService {
     return result;
   }
 
-  sortByViews() {
-    let result = this.searchItems
-      .slice()
-      .sort((itemA, itemB) => itemA.views - itemB.views);
+  sortByViews(isAsc: boolean) {
+    let result = [];
+
+    if (isAsc) {
+      result = this.searchItems
+        .slice()
+        .sort((itemA, itemB) => itemA.views - itemB.views);
+    } else {
+      result = this.searchItems
+        .slice()
+        .sort((itemA, itemB) => itemB.views - itemA.views);
+    }
 
     return result;
   }

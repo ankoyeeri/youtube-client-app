@@ -7,5 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilteringCriteriaComponent {
   sortByDateAsc = true;
+  sortByViewAsc = true;
   sortByWordOrSentenceValue = '';
 }

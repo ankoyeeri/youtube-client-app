@@ -7,7 +7,11 @@
   >
     date
   </button>
-  <button routerLink="/results" [queryParams]="{ searchBy: 'views' }">
+  <button
+    routerLink="/results"
+    (click)="sortByViewAsc = !sortByViewAsc"
+    [queryParams]="{ searchBy: 'views', asc: sortByViewAsc }"
+  >
     count of views
   </button>
   <div>
