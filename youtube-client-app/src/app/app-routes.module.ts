@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Type } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 
 import { CreateNewComponent } from './card/create-new/create-new.component';
 import { LoginComponent } from './card/login/login.component';
@@ -10,7 +11,12 @@ import { SearchResultsComponent } from './search/search-results/search-results.c
 
 const appRoutes: Routes = [
   { path: 'error', component: ErrorComponent },
-  { path: '**', redirectTo: 'error' },
+  // Commented due to function requirement of task-2:
+  /*
+      Once a user is entered the app, 
+      The only Header component should be shown. 
+   */
+  // { path: '**', redirectTo: 'error' },
 ];
 
 @NgModule({
