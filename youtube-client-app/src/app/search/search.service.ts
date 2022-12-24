@@ -69,8 +69,8 @@ export class SearchService {
     return this.searchItems.slice();
   }
 
-  getSearchItem(index: number) {
-    return this.searchItems[index];
+  getSearchItemById(id: string) {
+    return this.searchItems.find((item) => item.id === id);
   }
 
   addSearchItem(item: SearchItem) {
