@@ -17,7 +17,7 @@ export class SearchService {
       link: 'https://www.youtube.com/embed/gW8tSw6lZ2Q',
       description: `Peasant ATM, burgers on credit, Communist VISA: read the history of domestic banking and get as much as 500 roketrubles https://history.rocketbank.ru/ 
         This is the KuJi Podcast we just say. In this issue, Andrey Konyaev and Timur karginov discuss homeopathy, GMOs, and atheism with Alexander Panin`,
-      date: new Date('2023-07-03'),
+      date: new Date('2022-01-03'),
     },
     {
       name: 'Video #2',
@@ -27,7 +27,7 @@ export class SearchService {
       comments: 74,
       image: 'https://picsum.photos/640/480',
       description: 'Another one description',
-      date: new Date('2023-01-18'),
+      date: new Date('2022-12-20'),
     },
     {
       name: 'Video #3',
@@ -36,7 +36,7 @@ export class SearchService {
       dislikes: 15,
       comments: 74,
       image: 'https://picsum.photos/640/480',
-      date: new Date('2023-06-26'),
+      date: new Date('2022-10-26'),
     },
     {
       name: 'Video #4',
@@ -45,7 +45,7 @@ export class SearchService {
       dislikes: 15,
       comments: 74,
       image: 'https://picsum.photos/640/480',
-      date: new Date('2023-09-09'),
+      date: new Date('2022-12-09'),
     },
     {
       name: 'Video #5',
@@ -54,7 +54,7 @@ export class SearchService {
       dislikes: 15,
       comments: 74,
       image: 'https://picsum.photos/640/480',
-      date: new Date('2023-07-04'),
+      date: new Date('2022-07-04'),
     },
   ];
 
