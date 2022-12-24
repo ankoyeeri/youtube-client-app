@@ -12,17 +12,19 @@
     <div class="details">
       <div class="heading">
         <h2>{{ searchItem?.name }}</h2>
-        <p>{{ searchItem?.date | date: "fullDate" }}</p>
+        <p>{{ searchItem?.date | date : "fullDate" }}</p>
       </div>
 
       <div class="description" *ngIf="searchItem?.description">
         <h4>Description:</h4>
-        <p>{{ searchItem?.description | paragraphFormat: 1 }}</p>
+        <p>{{ searchItem?.description | paragraphFormat : 1 }}</p>
       </div>
 
       <div class="stats">
         <app-video-stats [searchItem]="searchItem"></app-video-stats>
       </div>
+
+      <app-color-line [date]="searchItem.date"></app-color-line>
     </div>
   </div>
 </div>

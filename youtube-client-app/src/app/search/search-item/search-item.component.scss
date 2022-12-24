@@ -71,14 +71,10 @@
     }
   }
 
-  .colored-line {
+  app-color-line {
     position: relative;
+
     width: 100%;
-    height: 5px;
-
     top: 15%;
-
-    background-color: #2f80ed;
-    border-radius: 0px 0px 5px 5px;
   }
 }
