@@ -27,6 +27,7 @@ export class CreateNewComponent {
 
     this.searchService.addSearchItem({
       ...this.form.getRawValue(),
+      id: this.searchService.getSearchItems().length.toString(),
       likes: 0,
       comments: 0,
       dislikes: 0,

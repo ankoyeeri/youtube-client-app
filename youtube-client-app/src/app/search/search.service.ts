@@ -8,6 +8,7 @@ import { SearchItem } from './search-item.model';
 export class SearchService {
   private searchItems: SearchItem[] = [
     {
+      id: '1',
       name: 'Video #1',
       views: 280,
       likes: 100,
@@ -20,6 +21,7 @@ export class SearchService {
       date: new Date('2022-01-03'),
     },
     {
+      id: '2',
       name: 'Video #2',
       views: 1500,
       likes: 100,
@@ -30,6 +32,7 @@ export class SearchService {
       date: new Date('2022-12-20'),
     },
     {
+      id: '3',
       name: 'Video #3',
       views: 1800,
       likes: 100,
@@ -39,6 +42,7 @@ export class SearchService {
       date: new Date('2022-10-26'),
     },
     {
+      id: '4',
       name: 'Video #4',
       views: 3000,
       likes: 100,
@@ -48,6 +52,7 @@ export class SearchService {
       date: new Date('2022-12-09'),
     },
     {
+      id: '5',
       name: 'Video #5',
       views: 1802,
       likes: 100,
