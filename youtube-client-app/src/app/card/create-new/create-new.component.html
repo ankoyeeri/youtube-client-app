@@ -1,0 +1,51 @@
+<div class="create-new">
+  <h2>Create new card</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input type="text" name="name" formControlName="name" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(form.get('name'))
+        }"
+      ></div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" name="description" formControlName="description" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(form.get('description'))
+        }"
+      ></div>
+    </div>
+    <div class="form-group">
+      <label for="image">Img</label>
+      <input type="text" name="image" formControlName="image" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(form.get('image'))
+        }"
+      ></div>
+    </div>
+    <div class="form-group">
+      <label for="link">Link video</label>
+      <input type="text" name="link" formControlName="link" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(form.get('link'))
+        }"
+      ></div>
+    </div>
+    <div class="form-group">
+      <button class="create" type="submit" [disabled]="!form.valid">
+        Create card
+      </button>
+    </div>
+  </form>
+</div>

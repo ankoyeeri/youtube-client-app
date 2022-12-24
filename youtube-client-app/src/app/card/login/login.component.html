@@ -1,0 +1,34 @@
+<div class="login">
+  <h2>Login</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="form-group">
+      <label for="login">login</label>
+      <input type="text" name="login" formControlName="login" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(form.get('login'))
+        }"
+      ></div>
+    </div>
+    <div class="form-group">
+      <label for="password">password</label>
+      <input type="password" name="password" formControlName="password" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(form.get('password'))
+        }"
+      ></div>
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="reg-btn" routerLink="/registration">
+        Registration
+      </button>
+      <button type="submit" class="login-btn" [disabled]="!form.valid">
+        Login
+      </button>
+    </div>
+  </form>
+</div>

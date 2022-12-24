@@ -1,0 +1,17 @@
+.results {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+
+  column-gap: 20px;
+  row-gap: 30px;
+
+  width: 60vw;
+}
+
+@media screen and (max-width: 1400px) {
+  .results {
+    padding-left: 20%;
+    padding-right: 10%;
+  }
+}
