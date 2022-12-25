@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { PipesModule } from '../pipes/pipes.module';
 import { SharedModule } from '../shared/shared.module';
 import { SearchItemDetailsComponent } from './components/search-item-details/search-item-details.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
@@ -12,7 +11,7 @@ import { YoutubeRoutesModule } from './youtube-routes.module';
     SearchItemDetailsComponent,
     SearchResultsComponent,
   ],
-  imports: [SharedModule, YoutubeRoutesModule, PipesModule],
+  imports: [SharedModule, YoutubeRoutesModule],
   exports: [
     SearchItemComponent,
     SearchItemDetailsComponent,

@@ -4,8 +4,11 @@ import { SearchItemDetailsComponent } from './components/search-item-details/sea
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 const routes: Routes = [
-  { path: 'results', component: SearchResultsComponent },
-  { path: 'results/:id', component: SearchItemDetailsComponent },
+  {
+    path: '',
+    component: SearchResultsComponent,
+  },
+  { path: ':id', component: SearchItemDetailsComponent },
 ];
 
 @NgModule({

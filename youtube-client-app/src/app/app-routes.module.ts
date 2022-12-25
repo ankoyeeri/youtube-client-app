@@ -4,13 +4,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './core/components/error/error.component';
 
 const appRoutes: Routes = [
+  {
+    path: 'results',
+    loadChildren: () =>
+      import('./youtube/youtube.module').then((m) => m.YoutubeModule),
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+
   { path: 'error', component: ErrorComponent },
-  // Commented due to function requirement of task-2:
-  /*
-      Once a user is entered the app, 
-      The only Header component should be shown. 
-   */
-  // { path: '**', redirectTo: 'error' },
+  { path: '**', redirectTo: 'error' },
 ];
 
 @NgModule({
