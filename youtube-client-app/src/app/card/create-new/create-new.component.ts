@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { SearchService } from 'src/app/search/search.service';
+import { SearchService } from 'src/app/youtube/services/search.service';
 
 @Component({
   selector: 'app-create-new',

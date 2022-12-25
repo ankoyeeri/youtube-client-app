@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SearchItem } from '../youtube/models/search-item.model';
 
 @Pipe({
   name: 'searchFor',

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { SearchItem } from 'src/app/search/search-item.model';
+import { SearchItem } from 'src/app/youtube/models/search-item.model';
 
 @Component({
   selector: 'app-video-stats',
