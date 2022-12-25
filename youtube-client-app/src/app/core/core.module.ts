@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ErrorComponent } from './error/error.component';
-import { HeaderModule } from './header/header.module';
+import { ErrorComponent } from './components/error/error.component';
+import { HeaderModule } from './components/header/header.module';
 
 @NgModule({
   declarations: [ErrorComponent],
