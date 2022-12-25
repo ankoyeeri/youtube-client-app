@@ -1,8 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { SearchItem } from '../search-item.model';
-import { SearchService } from '../search.service';
+import { ActivatedRoute } from '@angular/router';
+import { SearchItem } from '../../models/search-item.model';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-search-item-details',
