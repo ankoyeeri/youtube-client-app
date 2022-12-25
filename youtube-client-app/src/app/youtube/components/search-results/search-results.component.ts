@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { SearchItem } from '../search-item.model';
-import { SearchService } from '../search.service';
+import { SearchItem } from '../../models/search-item.model';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-search-results',
