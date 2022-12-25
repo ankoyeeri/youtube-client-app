@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { SearchItem } from './search-item.model';
+import { SearchItem } from '../models/search-item.model';
 
 @Injectable({
   providedIn: 'root',
