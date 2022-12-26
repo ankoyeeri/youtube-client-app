@@ -4,9 +4,11 @@ import { SearchItemDetailsComponent } from './pages/search-item-details/search-i
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
 import { YoutubeRoutesModule } from './youtube.routes.module';
+import { ColorLineComponent } from './components/color-line/color-line.component';
 
 @NgModule({
   declarations: [
+    ColorLineComponent,
     SearchItemComponent,
     SearchItemDetailsComponent,
     SearchResultsComponent,
