@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ErrorComponent } from './core/components/error/error.component';
+import { ColorLineComponent } from './shared/color-line/color-line.component';
 
 const appRoutes: Routes = [
+  { path: '', component: ColorLineComponent },
   {
     path: 'results',
     loadChildren: () =>
