@@ -6,10 +6,12 @@ import { SearchResultsComponent } from './pages/search-results/search-results.co
 import { YoutubeRoutesModule } from './youtube.routes.module';
 import { ColorLineComponent } from './components/color-line/color-line.component';
 import { HomeComponent } from './pages/home/home.component';
+import { VideoStatsComponent } from './components/video-stats/video-stats.component';
 
 @NgModule({
   declarations: [
     ColorLineComponent,
+    VideoStatsComponent,
     SearchItemComponent,
     SearchItemDetailsComponent,
     SearchResultsComponent,
