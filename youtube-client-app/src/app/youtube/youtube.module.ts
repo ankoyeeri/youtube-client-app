@@ -5,6 +5,7 @@ import { SearchItemComponent } from './components/search-item/search-item.compon
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
 import { YoutubeRoutesModule } from './youtube.routes.module';
 import { ColorLineComponent } from './components/color-line/color-line.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { ColorLineComponent } from './components/color-line/color-line.component
     SearchItemComponent,
     SearchItemDetailsComponent,
     SearchResultsComponent,
+    HomeComponent,
   ],
   imports: [SharedModule, YoutubeRoutesModule],
   exports: [
