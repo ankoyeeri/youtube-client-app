@@ -5,6 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +19,17 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required]),
   });
 
+  constructor(private authService: AuthService, private router: Router) {}
+
   onSubmit() {
-    console.log(this.form?.value);
+    const login = this.form.value.login;
+    const password = this.form.value.password;
+
+    this.authService.login(login, password);
+
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/']);
+    }
 
     this.form?.reset();
   }

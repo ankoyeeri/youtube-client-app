@@ -29,9 +29,12 @@
     </div>
 
     <div class="login">
-      <p>Your Name</p>
+      <p>{{ login }}</p>
       <button type="button" routerLink="/login">
         <img src="../../assets/login-button.svg" />
+      </button>
+      <button type="button" (click)="logout()" *ngIf="login">
+        <p>Logout</p>
       </button>
     </div>
   </div>
