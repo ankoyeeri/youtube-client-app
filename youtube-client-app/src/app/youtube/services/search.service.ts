@@ -1,69 +1,77 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { catchError, map, Observable, of, Subject, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { SearchItem } from '../models/search-item.model';
+import { SearchResponse } from '../models/search-response.model';
+
+type searchItemsLength = number;
 
 @Injectable({
   providedIn: 'root',
 })
 export class SearchService {
-  private searchItems: SearchItem[] = [
-    {
-      id: '1',
-      name: 'Video #1',
-      views: 280,
-      likes: 100,
-      dislikes: 15,
-      comments: 74,
-      image: 'https://picsum.photos/640/480',
-      link: 'https://www.youtube.com/embed/gW8tSw6lZ2Q',
-      description: `Peasant ATM, burgers on credit, Communist VISA: read the history of domestic banking and get as much as 500 roketrubles https://history.rocketbank.ru/ 
-        This is the KuJi Podcast we just say. In this issue, Andrey Konyaev and Timur karginov discuss homeopathy, GMOs, and atheism with Alexander Panin`,
-      date: new Date('2022-01-03'),
-    },
-    {
-      id: '2',
-      name: 'Video #2',
-      views: 1500,
-      likes: 100,
-      dislikes: 15,
-      comments: 74,
-      image: 'https://picsum.photos/640/480',
-      description: 'Another one description',
-      date: new Date('2022-12-20'),
-    },
-    {
-      id: '3',
-      name: 'Video #3',
-      views: 1800,
-      likes: 100,
-      dislikes: 15,
-      comments: 74,
-      image: 'https://picsum.photos/640/480',
-      date: new Date('2022-10-26'),
-    },
-    {
-      id: '4',
-      name: 'Video #4',
-      views: 3000,
-      likes: 100,
-      dislikes: 15,
-      comments: 74,
-      image: 'https://picsum.photos/640/480',
-      date: new Date('2022-12-09'),
-    },
-    {
-      id: '5',
-      name: 'Video #5',
-      views: 1802,
-      likes: 100,
-      dislikes: 15,
-      comments: 74,
-      image: 'https://picsum.photos/640/480',
-      date: new Date('2022-07-04'),
-    },
-  ];
+  private youtubeSearchListUrl = 'https://www.googleapis.com/youtube/v3/search';
+  private youtubeVideoListUrl = 'https://www.googleapis.com/youtube/v3/videos';
 
-  onSearchItemsChanged = new Subject<SearchItem[]>();
+  private searchItems: SearchItem[] = [];
+  searchItemsChanged = new Subject<searchItemsLength>();
+
+  constructor(private http: HttpClient) {}
+
+  search(searchLine: string) {
+    this.http
+      .get<any>(this.youtubeSearchListUrl, {
+        params: {
+          key: environment.youtubeAPIKey,
+          part: 'snippet',
+          type: 'video',
+          maxResults: 10,
+          q: searchLine,
+        },
+      })
+      .pipe(
+        map((response) => {
+          return response.items.map((item) => {
+            return { id: item.id.videoId };
+          });
+        })
+      )
+      .subscribe((videoIds) => {
+        let httpParams = new HttpParams()
+          .append('key', environment.youtubeAPIKey)
+          .append('part', 'snippet,contentDetails,statistics');
+
+        for (let item of videoIds) {
+          httpParams = httpParams.append('id', item.id);
+        }
+
+        this.http
+          .get<SearchResponse>(this.youtubeVideoListUrl, {
+            params: httpParams,
+          })
+          .subscribe((response) => {
+            this.searchItems = response.items.reduce((prItem, curItem) => {
+              let searchItem: SearchItem = {
+                id: curItem.id,
+                name: curItem.snippet.title,
+                views: +curItem.statistics.viewCount,
+                likes: +curItem.statistics.likeCount,
+                dislikes: 0,
+                comments: +curItem.statistics.commentCount,
+                image: curItem.snippet.thumbnails.medium.url,
+                link: `https://www.youtube.com/watch?v=${curItem.id}`,
+                description: curItem.snippet.description,
+                date: new Date(curItem.snippet.publishedAt),
+              };
+
+              return [...prItem, searchItem];
+            }, [] as SearchItem[]);
+
+            this.searchItemsChanged.next(this.searchItems.length);
+          });
+      });
+  }
 
   getSearchItems() {
     return this.searchItems.slice();
