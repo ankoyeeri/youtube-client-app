@@ -26,7 +26,12 @@
       <button type="button" class="reg-btn" routerLink="/registration">
         Registration
       </button>
-      <button type="submit" class="login-btn" [disabled]="!form.valid">
+      <button
+        type="submit"
+        class="login-btn"
+        [disabled]="!form.valid"
+        *ngIf="!isLoggedIn"
+      >
         Login
       </button>
     </div>

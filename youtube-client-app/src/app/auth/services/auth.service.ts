@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  loginData = new Subject<{
+  loginData: {
     login: string;
     password: string;
     authToken: string;
-  }>();
+  };
+
+  isLoggedInSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
 
   constructor() {}
 
@@ -21,16 +23,19 @@ export class AuthService {
     };
 
     localStorage.setItem('loginData', JSON.stringify(data));
-    this.loginData.next(data);
+    this.loginData = data;
+    this.isLoggedInSubject.next(true);
   }
 
   logout() {
     localStorage.removeItem('loginData');
-    this.loginData.next(null);
+    this.loginData = null;
+    this.isLoggedInSubject.next(false);
   }
 
   isLoggedIn(): boolean {
     if (localStorage.getItem('loginData')) {
+      this.loginData = JSON.parse(localStorage.getItem('loginData'));
       return true;
     }
 

@@ -13,23 +13,27 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   form = new FormGroup({
     login: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
+  isLoggedIn = false;
 
   constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.authService.isLoggedInSubject.subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
 
   onSubmit() {
     const login = this.form.value.login;
     const password = this.form.value.password;
 
     this.authService.login(login, password);
-
-    if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/']);
-    }
+    this.router.navigate(['/']);
 
     this.form?.reset();
   }
