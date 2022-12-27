@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { SearchItem } from '../../models/search-item.model';
 import { SearchService } from '../../services/search.service';
 
@@ -9,7 +10,8 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit, OnDestroy {
-  searchResults: SearchItem[] = [];
+  searchResults: SearchItem[] | undefined;
+  subscriptionSearchResultsChanged = new Subscription();
   searchByWordOrSentence = '';
 
   constructor(
@@ -19,6 +21,11 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.searchResults = this.searchService.getSearchItems();
+
+    this.subscriptionSearchResultsChanged =
+      this.searchService.searchItemsChanged.subscribe((itemsLength) => {
+        this.searchResults = this.searchService.getSearchItems();
+      });
 
     this.route.queryParams.subscribe((params: Params) => {
       const searchBy = params['searchBy'];
@@ -45,6 +52,6 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.searchResults = [];
+    this.subscriptionSearchResultsChanged.unsubscribe();
   }
 }
