@@ -5,7 +5,7 @@
     </div>
 
     <div class="search">
-      <form (ngSubmit)="onSubmit()" [formGroup]="form">
+      <form [formGroup]="form">
         <input
           id="search"
           type="text"
@@ -13,8 +13,6 @@
           name="search"
           formControlName="search"
         />
-
-        <button class="submit" type="submit">search</button>
 
         <div>
           <button
