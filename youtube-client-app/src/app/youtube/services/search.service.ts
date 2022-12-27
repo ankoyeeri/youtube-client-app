@@ -1,7 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, of, Subject, tap } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { map, Subject } from 'rxjs';
 import { SearchItem } from '../models/search-item.model';
 import { SearchResponse } from '../models/search-response.model';
 
@@ -23,7 +22,6 @@ export class SearchService {
     this.http
       .get<any>(this.youtubeSearchListUrl, {
         params: {
-          key: environment.youtubeAPIKey,
           part: 'snippet',
           type: 'video',
           maxResults: 10,
@@ -38,9 +36,10 @@ export class SearchService {
         })
       )
       .subscribe((videoIds) => {
-        let httpParams = new HttpParams()
-          .append('key', environment.youtubeAPIKey)
-          .append('part', 'snippet,contentDetails,statistics');
+        let httpParams = new HttpParams().append(
+          'part',
+          'snippet,contentDetails,statistics'
+        );
 
         for (let item of videoIds) {
           httpParams = httpParams.append('id', item.id);
