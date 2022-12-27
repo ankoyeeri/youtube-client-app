@@ -5,7 +5,7 @@
 
   <app-video-stats [searchItem]="searchItem"></app-video-stats>
 
-  <div class="name">{{ searchItem?.name }}</div>
+  <div class="name">{{ searchItem?.name | trim }}</div>
   <div class="btn-more">
     <button [routerLink]="[searchItem.id]">more...</button>
   </div>

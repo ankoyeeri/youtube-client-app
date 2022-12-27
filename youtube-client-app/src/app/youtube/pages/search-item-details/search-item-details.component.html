@@ -17,7 +17,7 @@
 
       <div class="description" *ngIf="searchItem?.description">
         <h4>Description:</h4>
-        <p>{{ searchItem?.description | paragraphFormat : 1 }}</p>
+        <p>{{ searchItem?.description | paragraphFormat : 1 | trim : 100 }}</p>
       </div>
 
       <div class="stats">
