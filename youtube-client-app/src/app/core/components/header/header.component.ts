@@ -1,7 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { debounceTime, distinct, distinctUntilChanged } from 'rxjs';
+import {
+  debounceTime,
+  distinct,
+  distinctUntilChanged,
+  Subscriber,
+  Subscription,
+  take,
+} from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { SearchService } from 'src/app/youtube/services/search.service';
 
@@ -10,9 +17,11 @@ import { SearchService } from 'src/app/youtube/services/search.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   isSettingsExpanded = false;
   login: string = '';
+
+  isLoggedInSubscription = new Subscription();
 
   form = new FormGroup({
     search: new FormControl('', [Validators.required]),
@@ -25,10 +34,13 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.login = JSON.parse(localStorage.getItem('loginData'))?.login;
-    this.authService.loginData.subscribe((data) => {
-      this.login = data?.login;
-    });
+    this.isLoggedInSubscription = this.authService.isLoggedInSubject.subscribe(
+      (isLoggedIn) => {
+        if (isLoggedIn) {
+          this.login = this.authService.loginData.login;
+        }
+      }
+    );
 
     const searchControl = this.form.get('search');
     searchControl.valueChanges
@@ -44,8 +56,13 @@ export class HeaderComponent implements OnInit {
     this.isSettingsExpanded = !this.isSettingsExpanded;
   }
 
-  logout() {
+  onLogout() {
     this.authService.logout();
+    this.login = '';
     this.router.navigate(['/login']);
+  }
+
+  ngOnDestroy(): void {
+    this.isLoggedInSubscription.unsubscribe();
   }
 }
