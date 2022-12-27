@@ -8,10 +8,6 @@ import { SearchResultsComponent } from './pages/search-results/search-results.co
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-  },
-  {
-    path: 'results',
     canActivate: [AuthGuard],
     component: SearchResultsComponent,
   },
