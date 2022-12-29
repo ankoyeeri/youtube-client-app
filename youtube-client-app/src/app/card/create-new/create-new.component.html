@@ -83,6 +83,26 @@
     </div>
 
     <div class="form-group">
+      <label for="date">Creation date</label>
+      <input type="date" name="date" formControlName="date" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(date)
+        }"
+      ></div>
+    </div>
+
+    <div class="form-group errors">
+      <span *ngIf="hadnleValidatorError(date, 'required')"
+        >* Please enter a creation date</span
+      >
+      <span *ngIf="hadnleValidatorError(date, 'forbiddenDateValidator')"
+        >* The date is invalid</span
+      >
+    </div>
+
+    <div class="form-group">
       <button class="create" type="submit" [disabled]="!form.valid">
         Create card
       </button>

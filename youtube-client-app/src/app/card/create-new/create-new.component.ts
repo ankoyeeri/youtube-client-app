@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { forbiddenDateValidator } from 'src/app/shared/validators/forbidden-date.directive';
 import { SearchService } from 'src/app/youtube/services/search.service';
 
 @Component({
@@ -33,6 +34,10 @@ export class CreateNewComponent {
       Validators.required,
       Validators.pattern(this.regexpYoutubeUrl),
     ]),
+    date: new FormControl<Date>(new Date(), [
+      Validators.required,
+      forbiddenDateValidator,
+    ]),
   });
 
   get name() {
@@ -49,6 +54,10 @@ export class CreateNewComponent {
 
   get link() {
     return this.form.get('link');
+  }
+
+  get date() {
+    return this.form.get('date');
   }
 
   constructor(private searchService: SearchService) {}
@@ -72,10 +81,7 @@ export class CreateNewComponent {
     return !element.valid && element.touched;
   }
 
-  hadnleValidatorError(
-    control: AbstractControl<string, string>,
-    errorName: string
-  ) {
+  hadnleValidatorError(control: AbstractControl, errorName: string) {
     return control.hasError(errorName) && control.touched;
   }
 }
