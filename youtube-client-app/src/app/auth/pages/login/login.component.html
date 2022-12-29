@@ -11,6 +11,16 @@
         }"
       ></div>
     </div>
+
+    <div class="form-group errors">
+      <span *ngIf="hadnleValidatorError(login, 'required')"
+        >* Please enter a login email</span
+      >
+      <span *ngIf="hadnleValidatorError(login, 'email')"
+        >* The login email is invalid</span
+      >
+    </div>
+
     <div class="form-group">
       <label for="password">password</label>
       <input type="password" name="password" formControlName="password" />

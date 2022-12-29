@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -15,9 +15,17 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   form = new FormGroup({
-    login: new FormControl('', [Validators.required]),
+    login: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
+
+  get login() {
+    return this.form.get('login');
+  }
+  get password() {
+    return this.form.get('password');
+  }
+
   isLoggedIn = false;
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -40,5 +48,12 @@ export class LoginComponent implements OnInit {
 
   isValid(element: AbstractControl<any>) {
     return !element.valid && element.touched;
+  }
+
+  hadnleValidatorError(
+    control: AbstractControl<string, string>,
+    errorName: string
+  ) {
+    return control.hasError(errorName) && control.touched;
   }
 }
