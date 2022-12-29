@@ -13,6 +13,9 @@ import { SearchService } from 'src/app/youtube/services/search.service';
   styleUrls: ['./create-new.component.scss'],
 })
 export class CreateNewComponent {
+  private regexpUrl =
+    /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/g;
+
   form = new FormGroup({
     name: new FormControl('', [
       Validators.required,
@@ -20,7 +23,10 @@ export class CreateNewComponent {
       Validators.maxLength(20),
     ]),
     description: new FormControl('', [Validators.maxLength(255)]),
-    image: new FormControl('', [Validators.required]),
+    image: new FormControl('', [
+      Validators.required,
+      Validators.pattern(this.regexpUrl),
+    ]),
     link: new FormControl('', [Validators.required]),
   });
 
