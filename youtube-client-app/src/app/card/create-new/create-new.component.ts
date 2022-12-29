@@ -19,7 +19,7 @@ export class CreateNewComponent {
       Validators.minLength(3),
       Validators.maxLength(20),
     ]),
-    description: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.maxLength(255)]),
     image: new FormControl('', [Validators.required]),
     link: new FormControl('', [Validators.required]),
   });
