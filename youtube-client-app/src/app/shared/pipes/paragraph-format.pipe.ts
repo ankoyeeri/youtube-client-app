@@ -13,6 +13,6 @@ export class ParagraphFormatPipe implements PipeTransform {
    */
   transform(value: any, newLineAmount: number = 1): any {
     const str: string = value;
-    return str.replace('\n', '\n'.repeat(newLineAmount + 1));
+    return str.replace(/[\n]+/g, '\n'.repeat(newLineAmount + 1));
   }
 }
