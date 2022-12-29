@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchItem } from '../../models/search-item.model';
 import { SearchService } from '../../services/search.service';
 
@@ -13,12 +13,17 @@ export class SearchItemDetailsComponent implements OnInit {
   searchItem: SearchItem | undefined;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private searchService: SearchService,
     private location: Location
   ) {}
 
   ngOnInit(): void {
+    if (this.searchService.getSearchItems().length < 1) {
+      this.router.navigate(['/']);
+    }
+
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       this.searchItem = this.searchService.getSearchItemById(id);
