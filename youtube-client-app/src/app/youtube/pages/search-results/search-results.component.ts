@@ -24,7 +24,11 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
     this.subscriptionSearchResultsChanged =
       this.searchService.searchItemsChanged.subscribe((itemsLength) => {
-        this.searchResults = this.searchService.getSearchItems();
+        if (itemsLength > 0) {
+          this.searchResults = this.searchService.getSearchItems();
+        } else {
+          this.searchResults = [];
+        }
       });
 
     this.route.queryParams.subscribe((params: Params) => {

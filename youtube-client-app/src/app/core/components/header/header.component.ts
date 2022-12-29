@@ -48,6 +48,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((searchLine) => {
         if (searchLine.length > 2) {
           this.searchService.search(searchLine);
+        } else {
+          this.searchService.searchItemsChanged.next(0);
         }
       });
   }
