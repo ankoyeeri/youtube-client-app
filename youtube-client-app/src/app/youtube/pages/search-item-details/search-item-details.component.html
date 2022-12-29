@@ -11,7 +11,7 @@
 
     <div class="details">
       <div class="heading">
-        <h2>{{ searchItem?.name }}</h2>
+        <h2>{{ searchItem?.name | trim : 100 }}</h2>
         <p>{{ searchItem?.date | date : "fullDate" }}</p>
       </div>
 
@@ -24,7 +24,7 @@
         <app-video-stats [searchItem]="searchItem"></app-video-stats>
       </div>
 
-      <app-color-line [date]="searchItem.date"></app-color-line>
+      <app-color-line [date]="searchItem?.date"></app-color-line>
     </div>
   </div>
 </div>
