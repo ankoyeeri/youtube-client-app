@@ -14,7 +14,9 @@ import { SearchService } from 'src/app/youtube/services/search.service';
 })
 export class CreateNewComponent {
   private regexpUrl =
-    /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/g;
+    /^(http(s):\/\/)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/g;
+  private regexpYoutubeUrl =
+    /^(http(s):\/\/)www\.youtube\.com([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/g;
 
   form = new FormGroup({
     name: new FormControl('', [
@@ -27,7 +29,10 @@ export class CreateNewComponent {
       Validators.required,
       Validators.pattern(this.regexpUrl),
     ]),
-    link: new FormControl('', [Validators.required]),
+    link: new FormControl('', [
+      Validators.required,
+      Validators.pattern(this.regexpYoutubeUrl),
+    ]),
   });
 
   get name() {

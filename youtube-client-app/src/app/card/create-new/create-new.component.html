@@ -72,6 +72,16 @@
         }"
       ></div>
     </div>
+
+    <div class="form-group errors">
+      <span *ngIf="hadnleValidatorError(link, 'required')"
+        >* Please enter a link to the video</span
+      >
+      <span *ngIf="hadnleValidatorError(link, 'pattern')"
+        >* The video link is invalid</span
+      >
+    </div>
+
     <div class="form-group">
       <button class="create" type="submit" [disabled]="!form.valid">
         Create card
