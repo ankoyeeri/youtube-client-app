@@ -16,7 +16,7 @@ export class ApiKeyInterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const modifiedReq = req.clone({
-      params: new HttpParams().append('key', environment.youtubeAPIKey),
+      setParams: { key: environment.youtubeAPIKey },
     });
 
     return next.handle(modifiedReq);
