@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -14,11 +14,31 @@ import { SearchService } from 'src/app/youtube/services/search.service';
 })
 export class CreateNewComponent {
   form = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.maxLength(15)]),
+    name: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(20),
+    ]),
     description: new FormControl('', [Validators.required]),
     image: new FormControl('', [Validators.required]),
     link: new FormControl('', [Validators.required]),
   });
+
+  get name() {
+    return this.form.get('name');
+  }
+
+  get description() {
+    return this.form.get('description');
+  }
+
+  get image() {
+    return this.form.get('image');
+  }
+
+  get link() {
+    return this.form.get('link');
+  }
 
   constructor(private searchService: SearchService) {}
 
@@ -39,5 +59,12 @@ export class CreateNewComponent {
 
   isValid(element: AbstractControl<any>) {
     return !element.valid && element.touched;
+  }
+
+  hadnleValidatorError(
+    control: AbstractControl<string, string>,
+    errorName: string
+  ) {
+    return control.hasError(errorName) && control.touched;
   }
 }
