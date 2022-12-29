@@ -31,9 +31,13 @@
     margin-top: 10px;
 
     // Input blocks: Login and Password
-    & > div {
+    & > div.form-group {
       display: flex;
       flex-direction: column;
+
+      &.errors {
+        color: red;
+      }
 
       label {
         position: relative;

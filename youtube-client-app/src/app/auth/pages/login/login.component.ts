@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { forbiddenPasswordValidator } from 'src/app/shared/validators/forbidden-password.directive';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -16,7 +17,10 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
   form = new FormGroup({
     login: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
+    password: new FormControl('', [
+      Validators.required,
+      forbiddenPasswordValidator,
+    ]),
   });
 
   get login() {
