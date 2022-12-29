@@ -26,7 +26,12 @@ export class SearchItemDetailsComponent implements OnInit {
 
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
-      this.searchItem = this.searchService.getSearchItemById(id);
+
+      try {
+        this.searchItem = this.searchService.getSearchItemById(id);
+      } catch (error) {
+        this.router.navigate(['/error']);
+      }
     });
   }
 
