@@ -24,7 +24,7 @@ export class SearchService {
         params: {
           part: 'snippet',
           type: 'video',
-          maxResults: 10,
+          maxResults: 5,
           q: searchLine,
         },
       })
@@ -36,10 +36,7 @@ export class SearchService {
         })
       )
       .subscribe((videoIds) => {
-        let httpParams = new HttpParams().append(
-          'part',
-          'snippet,contentDetails,statistics'
-        );
+        let httpParams = new HttpParams().append('part', 'snippet,statistics');
 
         for (let item of videoIds) {
           httpParams = httpParams.append('id', item.id);
@@ -77,7 +74,13 @@ export class SearchService {
   }
 
   getSearchItemById(id: string) {
-    return this.searchItems.find((item) => item.id === id);
+    let result = this.searchItems.find((item) => item.id === id);
+
+    if (!result) {
+      throw new Error('Item not found');
+    }
+
+    return result;
   }
 
   addSearchItem(item: SearchItem) {
