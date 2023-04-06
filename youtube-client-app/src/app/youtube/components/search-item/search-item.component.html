@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="image">
+    <img [src]="searchItem?.image" />
+  </div>
+
+  <app-video-stats [searchItem]="searchItem"></app-video-stats>
+
+  <div class="name">{{ searchItem?.name | trim : 60 }}</div>
+  <div class="btn-more">
+    <button [routerLink]="['video', searchItem.id]">more...</button>
+  </div>
+  <app-color-line [date]="searchItem.date"></app-color-line>
+</div>

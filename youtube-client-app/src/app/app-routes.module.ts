@@ -1,14 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CreateNewComponent } from './card/create-new/create-new.component';
-import { LoginComponent } from './card/login/login.component';
-import { RegistrationComponent } from './card/registration/registration.component';
-import { ErrorComponent } from './error/error.component';
-import { SearchItemDetailsComponent } from './search/search-item-details/search-item-details.component';
-import { SearchResultsComponent } from './search/search-results/search-results.component';
+import { ErrorComponent } from './core/components/error/error.component';
 
 const appRoutes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('./youtube/youtube.module').then((m) => m.YoutubeModule),
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
+
   { path: 'error', component: ErrorComponent },
   { path: '**', redirectTo: 'error' },
 ];

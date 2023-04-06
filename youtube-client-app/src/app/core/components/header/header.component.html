@@ -1,0 +1,41 @@
+<div class="row header">
+  <div class="row main">
+    <div class="logo" routerLink="/">
+      <img src="../../assets/logo.svg" />
+    </div>
+
+    <div class="search">
+      <form [formGroup]="form">
+        <input
+          id="search"
+          type="text"
+          placeholder="What do you want to find out?"
+          name="search"
+          formControlName="search"
+        />
+
+        <div>
+          <button
+            id="search-settings"
+            type="button"
+            (click)="onSettingsExpand()"
+          >
+            <img src="../../assets/search_settings.svg" />
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="login">
+      <p>{{ login }}</p>
+      <button type="button" routerLink="/login">
+        <img src="../../assets/login-button.svg" />
+      </button>
+      <button type="button" (click)="onLogout()" *ngIf="login">
+        <p>Logout</p>
+      </button>
+    </div>
+  </div>
+
+  <app-filtering-criteria *ngIf="isSettingsExpanded"></app-filtering-criteria>
+</div>

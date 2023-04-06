@@ -1,0 +1,111 @@
+<div class="create-new">
+  <h2>Create new card</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input type="text" name="name" formControlName="name" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(form.get('name'))
+        }"
+      ></div>
+    </div>
+
+    <div class="form-group errors">
+      <span *ngIf="hadnleValidatorError(name, 'required')"
+        >* Please, enter a title</span
+      >
+      <span *ngIf="hadnleValidatorError(name, 'minlength')"
+        >* This title is too short</span
+      >
+      <span *ngIf="hadnleValidatorError(name, 'maxlength')"
+        >* This title is too long</span
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" name="description" formControlName="description" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(form.get('description'))
+        }"
+      ></div>
+    </div>
+
+    <div class="form-group errors">
+      <span *ngIf="hadnleValidatorError(description, 'maxlength')"
+        >* The description is too long</span
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="image">Img</label>
+      <input type="text" name="image" formControlName="image" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(form.get('image'))
+        }"
+      ></div>
+    </div>
+
+    <div class="form-group errors">
+      <span *ngIf="hadnleValidatorError(image, 'required')"
+        >* Please enter a link to the image</span
+      >
+      <span *ngIf="hadnleValidatorError(image, 'pattern')"
+        >* The image link is invalid</span
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="link">Link video</label>
+      <input type="text" name="link" formControlName="link" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(form.get('link'))
+        }"
+      ></div>
+    </div>
+
+    <div class="form-group errors">
+      <span *ngIf="hadnleValidatorError(link, 'required')"
+        >* Please enter a link to the video</span
+      >
+      <span *ngIf="hadnleValidatorError(link, 'pattern')"
+        >* The video link is invalid</span
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="date">Creation date</label>
+      <input type="date" name="date" formControlName="date" />
+      <div
+        class="status"
+        [ngClass]="{
+          'status-warning': isValid(date)
+        }"
+      ></div>
+    </div>
+
+    <div class="form-group errors">
+      <span *ngIf="hadnleValidatorError(date, 'required')"
+        >* Please enter a creation date</span
+      >
+      <span *ngIf="hadnleValidatorError(date, 'forbiddenDateValidator')"
+        >* The date is invalid</span
+      >
+    </div>
+
+    <div class="form-group">
+      <button class="create" type="submit" [disabled]="!form.valid">
+        Create card
+      </button>
+    </div>
+  </form>
+</div>
